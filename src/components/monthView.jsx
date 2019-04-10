@@ -9,6 +9,7 @@ import { monthViewComponent, monthViewHeader, gridWrapper, headerItem, weekRow }
 
 const DAYS_OF_WEEK = ["sun", "mon", "tues", "wed", "thurs", "fri", "sat"];
 
+// TODO: write test
 function filterEventsByYearAndMonth(year, month, events) {
   return events && events.filter(event => {
     const momentDate = moment(event.startDate);
@@ -16,6 +17,7 @@ function filterEventsByYearAndMonth(year, month, events) {
   })
 }
 
+// TODO: write test
 function eventsForDate(date, events) {
   return events && events.filter(event => moment(event.startDate).date() === date.date());
 }
