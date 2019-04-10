@@ -3,7 +3,7 @@ import { number, object, array } from "prop-types";
 import moment from "moment";
 
 import chunkArray from "../helpers/chunkArray";
-import DateCell from "./dateCell";
+import DateCell from "./dateCellContainer";
 
 import { monthViewComponent, monthViewHeader, gridWrapper, headerItem, weekRow } from "../styles/monthView.module.css";
 

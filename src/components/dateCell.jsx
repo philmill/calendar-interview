@@ -2,9 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import moment from "moment";
 
-import { gridCellComponent, thisMonthCell, dateBubble, todayBubble } from "../styles/dateCell.module.css";
+import { gridCellComponent, thisMonthCell, dateBubble, todayBubble, eventTitle } from "../styles/dateCell.module.css";
 
-export default function DateCell({ date, month, events }) {
+export default function DateCell({ date, month, events, handleEventClick }) {
   const isThisMonth = month === date.month();
 
   const isToday = date.isSame(moment(), "day");
@@ -18,7 +18,9 @@ export default function DateCell({ date, month, events }) {
       <div>
         <div className={dateBubbleClasses}>{date.date()}</div>
         {events && events.map(event => (
-          <div key={event.id}>{event.title}</div>
+          <div key={event.id} className={eventTitle} onClick={handleEventClick.bind(this, event.id)}>
+            {event.title}
+          </div>
         ))}
       </div>
     </div>

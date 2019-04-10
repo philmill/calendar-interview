@@ -27,3 +27,11 @@
   color: white;
   font-weight: 600;
 }
+
+.eventTitle {
+  cursor: pointer;
+
+}
+.eventTitle:hover {
+  text-decoration: underline;
+}

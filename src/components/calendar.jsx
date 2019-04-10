@@ -3,6 +3,7 @@ import moment from "moment";
 import axios from 'axios';
 
 import MonthView from "./monthViewContainer";
+import DayView from './dayViewContainer';
 import Header from "./header";
 
 import {
@@ -59,7 +60,7 @@ export default class Calendar extends React.Component {
               momentizedDate={this.getMomentizedDate()}
             />
           </div>
-          {panelOpen && <div className={sidePanelWrapper} />}
+          {panelOpen && <DayView className={sidePanelWrapper} />}
         </div>
       </div>
     );
