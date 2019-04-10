@@ -17,7 +17,7 @@ function filterEventsByYearAndMonth(year, month, events) {
 }
 
 function eventsForDate(date, events) {
-  return events && events.filter(event => moment(event.startDate).day() === date.day());
+  return events && events.filter(event => moment(event.startDate).date() === date.date());
 }
 
 export default class MonthView extends React.Component {
