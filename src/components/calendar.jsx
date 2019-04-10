@@ -1,7 +1,8 @@
 import React from "react";
 import moment from "moment";
+import axios from 'axios';
 
-import MonthView from "./monthView";
+import MonthView from "./monthViewContainer";
 import Header from "./header";
 
 import {
@@ -17,6 +18,19 @@ const VIEW_MAPPING = {
 };
 
 export default class Calendar extends React.Component {
+  componentDidMount() {
+    // load event data, then dispatch action to reduce data into the store
+    axios.get('http://localhost:3001/events')
+      .then( (response) => {
+        // dispatch action to store response data
+        this.props.onEventsReceived(response.data);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      })
+  }
+
   render() {
     const { resolution, year, month, day, panelOpen, onTogglePanel } = this.props;
 

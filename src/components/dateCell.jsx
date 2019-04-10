@@ -4,7 +4,7 @@ import moment from "moment";
 
 import { gridCellComponent, thisMonthCell, dateBubble, todayBubble } from "../styles/dateCell.module.css";
 
-export default function DateCell({ date, month }) {
+export default function DateCell({ date, month, events }) {
   const isThisMonth = month === date.month();
 
   const isToday = date.isSame(moment(), "day");
@@ -17,6 +17,9 @@ export default function DateCell({ date, month }) {
     <div className={classes}>
       <div>
         <div className={dateBubbleClasses}>{date.date()}</div>
+        {events && events.map(event => (
+          <div key={event.id}>{event.title}</div>
+        ))}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import withRedirect from "../hocs/withRedirect";
 import { togglePanel } from "../actions/uiActions";
 
 import Calendar from "./calendar";
+import { eventsReceived } from "../actions/apiActions";
 
 function getRouteParams(props) {
   const { year, month: humanMonth, day, resolution } = props.match.params;
@@ -43,6 +44,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onTogglePanel: () => dispatch(togglePanel()),
+    onEventsReceived: (events) => dispatch(eventsReceived(events)),
   };
 }
 
